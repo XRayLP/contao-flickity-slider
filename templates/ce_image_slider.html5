@@ -1,0 +1,17 @@
+<<script type="text/javascript">
+<!--
+Hier entsteht das Javascript für den Slider!
+//-->
+</script>
+
+<<style>
+<!--
+ Hier entsteht das CSS für den Slider!
+-->
+</style>
+
+<div class="carousel">
+<!-- 
+ Hier entsteht der Slider!
+ -->
+</div>

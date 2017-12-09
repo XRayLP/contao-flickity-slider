@@ -76,7 +76,7 @@ $GLOBALS['TL_DCA']['tl_flickity_slider'] = array
 	'palettes' => array
 	(
 	    '__selector__'                => array('autoPlay'),
-		'default'                     => '{title_legend},title;{config_legend},cellWidth,cellHeight,cellMargin,cellAlign,draggable,freeScroll,wrapAround,autoPlay,adaptiveHeight,staticBanner1,staticBanner2'
+		'default'                     => '{title_legend},title;{config_legend},imageSRC,orderSRC,cellWidth,cellHeight,cellMargin,cellAlign,draggable,freeScroll,wrapAround,autoPlay,adaptiveHeight,staticBanner1,staticBanner2'
 	),
 
 
@@ -100,6 +100,29 @@ $GLOBALS['TL_DCA']['tl_flickity_slider'] = array
 			'eval'                    => array('mandatory'=>true, 'maxlength'=>64, 'tl_class'=>'w50'),
 			'sql'                     => "varchar(64) NOT NULL default ''"
 		),
+	    
+	    /*
+	     * Image Configuration
+	     */
+	    
+	    'imageSRC' => array
+	    (
+	        'label'                   => &$GLOBALS['TL_LANG']['tl_flickity_slider']['imageSRC'],
+	        'exclude'                 => true,
+	        'inputType'               => 'fileTree',
+	        'eval'                    => array('multiple'=>true, 'fieldType'=>'checkbox', 'orderField'=>'orderSRC', 'files'=>true, 'mandatory'=>true),
+	        'sql'                     => "blob NULL",
+	        /*'load_callback' => array
+	        (
+	            array('tl_flickity_slider', 'setMultiSrcFlags')
+	        )*/
+	    ),
+	    
+	    'orderSRC' => array
+	    (
+	        'label'                   => &$GLOBALS['TL_LANG']['tl_flickity_slider']['orderSRC'],
+	        'sql'                     => "blob NULL"
+	    ),
 	    
         /*
          * Cell Configuration
@@ -220,3 +243,34 @@ $GLOBALS['TL_DCA']['tl_flickity_slider'] = array
 	    ),
 	)
 );
+
+class tl_flickity_slider extends Backend {
+    /**
+     * Dynamically add flags to the "multiSRC" field
+     *
+     * @param mixed         $varValue
+     * @param DataContainer $dc
+     *
+     * @return mixed
+     */
+    public function setMultiSrcFlags($varValue, DataContainer $dc)
+    {
+        if ($dc->activeRecord)
+        {
+            switch ($dc->activeRecord->type)
+            {
+                case 'gallery':
+                    $GLOBALS['TL_DCA'][$dc->table]['fields'][$dc->field]['eval']['isGallery'] = true;
+                    $GLOBALS['TL_DCA'][$dc->table]['fields'][$dc->field]['eval']['extensions'] = Config::get('validImageTypes');
+                    break;
+                    
+                case 'downloads':
+                    $GLOBALS['TL_DCA'][$dc->table]['fields'][$dc->field]['eval']['isDownloads'] = true;
+                    $GLOBALS['TL_DCA'][$dc->table]['fields'][$dc->field]['eval']['extensions'] = Config::get('allowedDownload');
+                    break;
+            }
+        }
+        
+        return $varValue;
+    }
+}
