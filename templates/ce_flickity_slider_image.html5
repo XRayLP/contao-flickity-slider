@@ -6,3 +6,13 @@
 		</div>
 	<?php endforeach; ?>
 </div>
+
+<script>
+var elem = document.querySelector('.carousel');
+var flkty = new Flickity( elem, {
+  cellSelector: '.carousel-cell',
+  cellAlign: 'left',
+  contain: true,
+  imagesLoaded: true
+});	
+</script>
