@@ -1,0 +1,8 @@
+<!-- ce_flickity_slider_image.html5 -->
+<div class="carousel" >
+	<?php foreach ($this->imageSRC as $image): ?>
+		<div class="carousel-cell">
+			<img src="<?php echo $image['singleSRC'] ?>" alt="<?php echo $image['alt'] ?>" title="<?php echo $image['name'] ?>" >
+		</div>
+	<?php endforeach; ?>
+</div>

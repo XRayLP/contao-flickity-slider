@@ -24,5 +24,5 @@ ClassLoader::addClasses(array
  */
 TemplateLoader::addFiles(array
 (
-	'ce_image_slider' => 'system/modules/contao-flickity-slider/templates',
+	'ce_flickity_slider_image' => 'system/modules/contao-flickity-slider/templates',
 ));
