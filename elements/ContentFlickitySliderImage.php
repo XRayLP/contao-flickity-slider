@@ -19,6 +19,8 @@ class ContentFlickitySliderImage extends ContentElement {
         global $objPage;
         
         $images = array();
+        $cellWidth = array();
+        $cellHeight = array();
         $auxDate = array();
         $objFiles = $this->objFiles;
         
@@ -137,13 +139,23 @@ class ContentFlickitySliderImage extends ContentElement {
                 }
             }
         }
+
+        // Width
+        $cellWidth = deserialize($this->cellWidth);
+        $cellHeight = deserialize($this->cellHeight);
+            
+
         
         $this->Template = new \FrontendTemplate($this->strTemplate);
         $this->Template->class = "ce_flickity_slider_image";
-
+        $this->Template->cellWidth = $this->cellWidth;
+        $this->Template->cellHeight = $this->cellHeight;
+        $this->Template->autoSlide = $this->autoSlide;
         
-        $this->Template->imageSRC = $images;
-        $this->Template->imageLink = $objFile->path;
+        $this->Template->cellWidth = $cellWidth;
+        $this->Template->cellHeight = $cellHeight;
+        
+        $this->Template->images = $images;
         
 
 

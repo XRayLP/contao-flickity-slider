@@ -1,15 +1,32 @@
 <!-- ce_flickity_slider_image.html5 -->
+<p><?php echo $this->showTemplateVars(); ?></p>
 <div class="carousel" >
-	<?php foreach ($this->imageSRC as $image): ?>
+	<?php foreach ($this->images as $image): ?>
 		<div class="carousel-cell">
 			<img src="<?php echo $image['singleSRC'] ?>" alt="<?php echo $image['alt'] ?>" title="<?php echo $image['name'] ?>" >
 		</div>
 	<?php endforeach; ?>
 </div>
 
+<style>
+
+    .carousel-cell {
+        height: <?php echo $this->cellHeight['value'].$this->cellHeight[unit]?>;
+        width: <?php echo $this->cellWidth['value'].$this->cellWidth[unit]?>;
+    }
+    
+    .carousel-cell img {
+        height: 100%;
+    }
+
+</style>
+
 <script>
 var elem = document.querySelector('.carousel');
 var flkty = new Flickity( elem, {
+  <?php if ($this->autoSlide): ?>
+  autoPlay: true,
+  <?php endif; ?>
   cellSelector: '.carousel-cell',
   cellAlign: 'left',
   contain: true,
