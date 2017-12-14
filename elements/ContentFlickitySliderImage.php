@@ -6,9 +6,43 @@ class ContentFlickitySliderImage extends ContentElement {
     
     public function generate()
     {
-        $this->multiSRC = deserialize($this->multiSRC);
+        //Slider Height Array
+        $this->sliderHeight = deserialize($this->sliderHeight);
         
-        $this->objFiles = \FilesModel::findMultipleByUuids($this->multiSRC);
+        //Image Array
+        // Use the home directory of the current user as file source
+        if ($this->useHomeDir && FE_USER_LOGGED_IN)
+        {
+            $this->import('FrontendUser', 'User');
+            
+            if ($this->User->assignDir && $this->User->homeDir)
+            {
+                $this->orderSRC = array($this->User->homeDir);
+            }
+        }
+        else
+        {
+            $this->orderSRC = deserialize($this->orderSRC);
+        }
+        
+        // Return if there are no files
+        if (!is_array($this->orderSRC) || empty($this->orderSRC))
+        {
+            return '';
+        }
+        
+        // Get the file entries from the database
+        $this->objFiles = \FilesModel::findMultipleByUuids($this->orderSRC);
+        
+        if ($this->objFiles === null)
+        {
+            if (!\Validator::isUuid($this->orderSRC[0]))
+            {
+                return '<p class="error">'.$GLOBALS['TL_LANG']['ERR']['version2format'].'</p>';
+            }
+            
+            return '';
+        }
         
         return parent::generate();
     }
@@ -19,8 +53,6 @@ class ContentFlickitySliderImage extends ContentElement {
         global $objPage;
         
         $images = array();
-        $cellWidth = array();
-        $cellHeight = array();
         $auxDate = array();
         $objFiles = $this->objFiles;
         
@@ -140,24 +172,20 @@ class ContentFlickitySliderImage extends ContentElement {
             }
         }
 
-        // Width
-        $cellWidth = deserialize($this->cellWidth);
-        $cellHeight = deserialize($this->cellHeight);
-            
-
+     
         
+        //Template Configuration
         $this->Template = new \FrontendTemplate($this->strTemplate);
         $this->Template->class = "ce_flickity_slider_image";
-        $this->Template->cellWidth = $this->cellWidth;
-        $this->Template->cellHeight = $this->cellHeight;
-        $this->Template->autoSlide = $this->autoSlide;
         
-        $this->Template->cellWidth = $cellWidth;
-        $this->Template->cellHeight = $cellHeight;
-        
+        //Slider Main
+        $this->Template->sliderHeight = $this->sliderHeight;
         $this->Template->images = $images;
         
-
+        //Extra Configuration
+        $this->Template->autoSlide = $this->autoSlide;
+        $this->Template->wrapAround = $this->wrapAround;
+        $this->Template->freeScroll = $this->freeScroll;
 
     }
          

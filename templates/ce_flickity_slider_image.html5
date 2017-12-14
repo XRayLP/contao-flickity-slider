@@ -2,21 +2,15 @@
 <p><?php echo $this->showTemplateVars(); ?></p>
 <div class="carousel" >
 	<?php foreach ($this->images as $image): ?>
-		<div class="carousel-cell">
-			<img src="<?php echo $image['singleSRC'] ?>" alt="<?php echo $image['alt'] ?>" title="<?php echo $image['name'] ?>" >
-		</div>
+		<img src="<?php echo $image['singleSRC'] ?>" alt="<?php echo $image['alt'] ?>" title="<?php echo $image['name'] ?>" >
 	<?php endforeach; ?>
 </div>
 
 <style>
 
-    .carousel-cell {
-        height: <?php echo $this->cellHeight['value'].$this->cellHeight[unit]?>;
-        width: <?php echo $this->cellWidth['value'].$this->cellWidth[unit]?>;
-    }
-    
-    .carousel-cell img {
-        height: 100%;
+    .carousel img {
+        height: <?php echo $this->sliderHeight['value'].$this->sliderHeight[unit]?>;
+        width: auto;
     }
 
 </style>
@@ -24,12 +18,19 @@
 <script>
 var elem = document.querySelector('.carousel');
 var flkty = new Flickity( elem, {
+//Auto Play
   <?php if ($this->autoSlide): ?>
   autoPlay: true,
   <?php endif; ?>
-  cellSelector: '.carousel-cell',
-  cellAlign: 'left',
-  contain: true,
+//Infinite Scrolling
+  <?php if ($this->wrapAround): ?>
+  wrapAround: true,
+  <?php endif; ?>
+//Free Scrolling
+  <?php if ($this->freeScroll): ?>
+  freeScroll: true,
+  <?php endif; ?>
+  
   imagesLoaded: true
 });	
 </script>

@@ -1,8 +1,8 @@
 <?php
 
-$GLOBALS['TL_LANG']['tl_content']['config_legend'] = 'Sliderkonfiguration';
+$GLOBALS['TL_LANG']['tl_content']['config_legend'] = 'Sliderconfiguration';
 
-$GLOBALS['TL_LANG']['tl_content']['sliderHeight'][0] = 'Sliderhöhe';
+$GLOBALS['TL_LANG']['tl_content']['sliderHeight'][0] = 'Sliderheight';
 $GLOBALS['TL_LANG']['tl_content']['sliderHeight'][1] = 'Geben Sie hier die gewünschte Sliderhöhe ein. Achtung Bilder haben automatisch diese Höhe!';
 
 $GLOBALS['TL_LANG']['tl_content']['freeScroll'][0] = 'Frei Scrollbar';

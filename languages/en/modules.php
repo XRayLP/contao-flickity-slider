@@ -1,4 +1,7 @@
 <?php
 
-$GLOBALS['TL_LANG']['MOD']['flickity-slider'][0] = 'Slider';
-$GLOBALS['TL_LANG']['MOD']['flickity-slider'][1] = 'configure Slider';
+
+$GLOBALS['TL_LANG']['CTE']['flickity_slider'] = 'Flickity Slider';
+
+$GLOBALS['TL_LANG']['CTE']['flickity_slider_image'][0] = 'Flickity Iamgeslider';
+$GLOBALS['TL_LANG']['CTE']['flickity_slider_image'][1] = 'Create a Flickity Slider with images.';
