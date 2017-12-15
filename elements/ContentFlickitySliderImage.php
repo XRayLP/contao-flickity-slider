@@ -1,15 +1,36 @@
 <?php
 
+/**
+ * Contao Flickity Slider
+ * Extension for Contao Open Source CMS (contao.org)
+ *
+ * Copyright (c) 2017 XRayLP
+ *
+ * @package contao-flickity-slider
+ * @author XRayLP <info@xraylp.de>
+ * @link https://github.com/XRayLP/contao-flickity-slider
+ * @license https://www.gnu.org/licenses/gpl-3.0.en.html GPL-3.0
+ */
+
+/**
+ * Image Slider Class
+ */
+
 class ContentFlickitySliderImage extends ContentElement {
     
     protected $strTemplate = 'ce_flickity_slider_image';    
+    
+    /**
+     * Get files and deserialize arrays
+     * @see \Contao\ContentElement::generate()
+     */
     
     public function generate()
     {
         //Slider Height Array
         $this->sliderHeight = deserialize($this->sliderHeight);
         
-        //Image Array
+        // Image Array
         // Use the home directory of the current user as file source
         if ($this->useHomeDir && FE_USER_LOGGED_IN)
         {
@@ -46,6 +67,11 @@ class ContentFlickitySliderImage extends ContentElement {
         
         return parent::generate();
     }
+    
+    /**
+     * Function for setting the template variables
+     * @see \Contao\ContentElement::compile()
+     */
     
     protected function compile()
     {

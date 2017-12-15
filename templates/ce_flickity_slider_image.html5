@@ -1,5 +1,5 @@
 <!-- ce_flickity_slider_image.html5 -->
-<p><?php echo $this->showTemplateVars(); ?></p>
+
 <div class="carousel" >
 	<?php foreach ($this->images as $image): ?>
 		<img src="<?php echo $image['singleSRC'] ?>" alt="<?php echo $image['alt'] ?>" title="<?php echo $image['name'] ?>" >
@@ -16,21 +16,31 @@
 </style>
 
 <script>
-var elem = document.querySelector('.carousel');
-var flkty = new Flickity( elem, {
-//Auto Play
-  <?php if ($this->autoSlide): ?>
-  autoPlay: true,
-  <?php endif; ?>
-//Infinite Scrolling
-  <?php if ($this->wrapAround): ?>
-  wrapAround: true,
-  <?php endif; ?>
-//Free Scrolling
-  <?php if ($this->freeScroll): ?>
-  freeScroll: true,
-  <?php endif; ?>
-  
-  imagesLoaded: true
-});	
+
+	/*
+	* Initialize the slider
+	*/
+	
+    var elem = document.querySelector('.carousel');
+    var flkty = new Flickity( elem, {
+
+      //Auto Play
+      <?php if ($this->autoSlide): ?>
+      	autoPlay: true,
+      <?php endif; ?>
+      
+      //Infinite Scrolling
+      <?php if ($this->wrapAround): ?>
+      	wrapAround: true,
+      <?php endif; ?>
+      
+      //Free Scrolling
+      <?php if ($this->freeScroll): ?>
+      	freeScroll: true,
+      <?php endif; ?>
+
+      //Standard
+      imagesLoaded: true
+    });	
+    
 </script>

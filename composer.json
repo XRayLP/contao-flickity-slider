@@ -1,0 +1,38 @@
+{
+	"name" : "xraylp/contao-flickity-slider",
+	"description" : "Contao Module for the Flickity Slider by Metafizzy",
+	"type" : "contao-module",
+	"homepage" : "https://github.com/XRayLP/contao-flickity-slider",
+	"license" : "GPL-3.0",
+	"minimum-stability" : "stable",
+	"support" : {
+		"email" : "info@xraylp.de",
+		"issues" : "https://github.com/XRayLP/contao-flickity-slider/issues",
+		"source" : "https://github.com/XRayLP/contao-flickity-slider"
+	},
+	"authors" : [{
+			"name" : "XRayLP",
+			"homepage" : "https://github.com/XRayLP",
+			"email" : "info@xraylp.de",
+			"role" : "Project leader"
+		}
+	],
+	"require" : {
+		"php" : ">=5.3.4",
+		"contao/core" : "~3.5",
+		"contao-community-alliance/composer-plugin" : "~2.0"
+	},
+	"keywords" : [
+		"slider",
+		"flickity",
+		"contao",
+		"metafizzy"
+	],
+	"extra" : {
+		"contao" : {
+			"sources" : {
+				"" : "system/modules/contao-flickity-slider"
+			}
+		}
+	}
+}

@@ -1,13 +1,16 @@
 <?php
 
 /**
- * Contao Open Source CMS
+ * Contao Flickity Slider
+ * Extension for Contao Open Source CMS (contao.org)
  *
- * Copyright (c) 2005-2017 Leo Feyer
+ * Copyright (c) 2017 XRayLP
  *
- * @license LGPL-3.0+
+ * @package contao-flickity-slider
+ * @author XRayLP <info@xraylp.de>
+ * @link https://github.com/XRayLP/contao-flickity-slider
+ * @license https://www.gnu.org/licenses/gpl-3.0.en.html GPL-3.0
  */
-
 
 /**
  * Register the classes
