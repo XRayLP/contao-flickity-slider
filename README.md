@@ -22,3 +22,7 @@ NOTE: This wonderful Slider was created by [Metafizzy](https://github.com/metafi
 
 In the second step you have to add the "contao-flickity-slider" extension to contao through the Composer Package Manager.
 (If you use the old Package Manager, you will install the module manually)
+
+## Copyright
+
+This project has been created and is maintained by [XRayLP](https://github.com/XRayLP).
