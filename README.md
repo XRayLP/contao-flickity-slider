@@ -4,7 +4,7 @@ Contao Module for the [Flickity Slider](https://github.com/metafizzy/flickity) b
 ## Requirements
 
 - Contao 3.5 or later (I didn't test it for Contao 4)
-- Latest [Flickity Slider](https://github.com/metafizzy/flickity) by [Metafizzy](https://github.com/metafizzy)
+- Latest Flickity Slider
 
 ## Documentation
 
