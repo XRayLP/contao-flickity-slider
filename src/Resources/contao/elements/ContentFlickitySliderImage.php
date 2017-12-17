@@ -79,7 +79,6 @@ class ContentFlickitySliderImage extends ContentElement {
         global $objPage;
         
         $images = array();
-        $auxDate = array();
         $objFiles = $this->objFiles;
         
         // Get all images
@@ -132,8 +131,7 @@ class ContentFlickitySliderImage extends ContentElement {
                     'imageUrl'  => $arrMeta['link'],
                     'caption'   => $arrMeta['caption']
                 );
-                
-                $auxDate[] = $objFile->mtime;
+
             }
             
             // Folders
@@ -193,7 +191,6 @@ class ContentFlickitySliderImage extends ContentElement {
                         'caption'   => $arrMeta['caption']
                     );
                     
-                    $auxDate[] = $objFile->mtime;
                 }
             }
         }
