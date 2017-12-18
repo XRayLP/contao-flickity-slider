@@ -27,17 +27,17 @@
 		"contao",
 		"metafizzy"
 	],
-	"extra" : {
-		"contao-manager-plugin": "XRayLP\\Bundle\\FlickitySliderBundle\\ContaoManagerPlugin"
-	},
 	"autoload" : {
 		"psr-4" : {
-			"XRayLP\\FlickitySliderBundle\\" : "src"
+			"XRayLP\\Bundle\\FlickitySliderBundle\\" : "src"
 		}
 	},
 	"autoload-dev" : {
 		"psr-4" : {
-			"XRayLP\\FlickitySliderBundle\\Test\\" : "tests"
+			"XRayLP\\Bundle\\FlickitySliderBundle\\Test\\" : "tests"
 		}
+	},
+	"extra" : {
+		"contao-manager-plugin": "XRayLP\\Bundle\\FlickitySliderBundle\\ContaoManagerPlugin"
 	}
 }
