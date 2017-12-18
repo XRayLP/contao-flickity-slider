@@ -28,7 +28,7 @@
 		"metafizzy"
 	],
 	"extra" : {
-		"contao-manager-plugin": "XRayLP\\FlickitySliderBundle\\ContaoManagerPlugin"
+		"contao-manager-plugin": "XRayLP\\Bundle\\FlickitySliderBundle\\ContaoManagerPlugin"
 	},
 	"autoload" : {
 		"psr-4" : {
