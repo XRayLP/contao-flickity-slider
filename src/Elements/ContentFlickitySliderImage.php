@@ -12,6 +12,10 @@
  * @license https://www.gnu.org/licenses/gpl-3.0.en.html GPL-3.0
  */
 
+namespace XRayLP\Bundle\FlickitySliderBundle\Elements;
+
+use Contao\ContentElement;
+
 /**
  * Image Slider Class
  */
